@@ -77,10 +77,7 @@ while True:
     out.write(orig_image)
 
     sum += boxes.size(0)
-    cv2.imshow('annotated', orig_image)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+
 cap.release()
 out.release()
-cv2.destroyAllWindows()
 print("all face num:{}".format(sum))
