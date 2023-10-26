@@ -12,7 +12,7 @@ parser.add_argument('--candidate_size', default=1000, type=int, help='nms candid
 parser.add_argument('--path', default="imgs", type=str, help='imgs dir')
 parser.add_argument('--test_device', default="cuda:0", type=str, help='cuda:0 or cpu')
 parser.add_argument('--video_path', default="iiserb_vid\Coldplay.mp4", type=str, help='path of video')
-parser.add_argument('--output_path', default="/workspace/home-start/output_video.mp4", type=str, help='path of output video')
+parser.add_argument('--output_path', default="\workspace\home-start\output_video.mp4", type=str, help='path of output video')
 args = parser.parse_args()
 
 input_img_size = args.input_size
