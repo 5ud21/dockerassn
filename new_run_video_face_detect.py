@@ -1,9 +1,7 @@
 import argparse
 import sys
 import cv2
-
 from vision.ssd.config.fd_config import define_img_size
-
 parser = argparse.ArgumentParser(description='detect_video')
 parser.add_argument('--net_type', default="RFB", type=str, help='The network architecture, optional: RFB (higher precision) or slim (faster)')
 parser.add_argument('--input_size', default=480, type=int, help='define network input size, default optional value 128/160/320/480/640/1280')
@@ -12,7 +10,7 @@ parser.add_argument('--candidate_size', default=1000, type=int, help='nms candid
 parser.add_argument('--path', default="imgs", type=str, help='imgs dir')
 parser.add_argument('--test_device', default="cuda:0", type=str, help='cuda:0 or cpu')
 parser.add_argument('--video_path', default="iiserb_vid\Coldplay.mp4", type=str, help='path of video')
-parser.add_argument('--output_path', default="output_video.mp4", type=str, help='path of output video')
+parser.add_argument('--output_path', default="\workspace\home-start\output_video.mp4", type=str, help='path of output video')
 args = parser.parse_args()
 
 input_img_size = args.input_size
@@ -54,7 +52,7 @@ frame_height = int(cap.get(4))
 fps = int(cap.get(cv2.CAP_PROP_FPS))
 
 # Define the codec and create VideoWriter object
-out = cv2.VideoWriter(args.output_path, cv2.VideoWriter_fourcc('M','J','P','G'), fps, (frame_width, frame_height))
+out = cv2.VideoWriter(args.output_path, cv2.VideoWriter_fourcc(*'MP4V'), fps, (frame_width, frame_height))
 
 timer = Timer()
 # ... (previous code)
